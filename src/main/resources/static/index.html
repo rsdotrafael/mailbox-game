@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mailbox Game</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/delete.css" />
+</head>
+<body>
+  <main class="mail-app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">M</div><span>Mailbox</span></div>
+      <button class="new-message" id="newMessageBtn"><span>＋</span> Nova mensagem</button>
+      <nav class="folders" aria-label="Pastas">
+        <button class="folder active" id="inboxFolder"><span>▰</span> Caixa de entrada <b id="unreadCount">0</b></button>
+        <button class="folder" id="draftsFolder"><span>◇</span> Rascunhos <b id="draftCount">0</b></button>
+        <button class="folder" id="sentFolder"><span>↗</span> Enviadas <b id="sentCount">0</b></button>
+      </nav>
+    </aside>
+
+    <section class="inbox-panel">
+      <header class="inbox-header">
+        <div><span class="eyebrow">PASTA</span><h1>Caixa de entrada</h1></div>
+        <button class="icon-button" id="refreshBtn" title="Atualizar">↻</button>
+      </header>
+      <div class="message-list" id="messageList"></div>
+      <div class="empty-list" id="emptyList">
+        <div class="empty-icon">✉</div>
+        <h2>Sua caixa está vazia</h2>
+        <p>Novas mensagens aparecerão aqui.</p>
+      </div>
+    </section>
+
+    <section class="reading-panel">
+      <header class="toolbar">
+        <button class="reply-button" id="replyBtn" disabled>↩&nbsp; Responder</button>
+      </header>
+      <article class="message-view" id="messageView">
+        <div class="view-empty">
+          <div class="view-empty-mark">✉</div>
+          <p>Selecione uma mensagem para visualizar</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="composerBackdrop" hidden>
+    <section class="composer" role="dialog" aria-modal="true" aria-labelledby="composerTitle">
+      <header class="composer-header">
+        <h2 id="composerTitle">Nova mensagem</h2>
+        <button class="close-button" id="closeComposer" aria-label="Fechar">×</button>
+      </header>
+      <form id="composerForm">
+        <label class="field">
+          <span>Para</span>
+          <input id="recipient" name="recipient" autocomplete="off" placeholder="nome@empresa.com" required />
+        </label>
+        <label class="field">
+          <span>Assunto</span>
+          <input id="subject" name="subject" placeholder="Digite o assunto" required />
+        </label>
+        <textarea id="content" name="content" placeholder="Escreva sua mensagem..."></textarea>
+        <footer class="composer-footer">
+          <button type="button" class="discard-button" id="discardBtn">Descartar</button>
+          <button type="submit" class="send-button">Enviar <span>➤</span></button>
+        </footer>
+      </form>
+    </section>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

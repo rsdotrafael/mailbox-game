@@ -1,0 +1,29 @@
+/* Exclusão dos cartões */
+.message-card-top {
+  align-items: center;
+}
+
+.message-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.delete-message {
+  height: 26px;
+  border: 1px solid #efcaca;
+  border-radius: 6px;
+  background: #fff;
+  color: #c94444;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+.delete-message:hover {
+  color: #fff;
+  border-color: #c94444;
+  background: #c94444;
+}
